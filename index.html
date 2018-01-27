@@ -11,6 +11,18 @@
 
 		  gtag('config', 'UA-33731177-2');
 		</script>
+		<!-- Track external links events - Google Analytics -->
+		<script type=”text/javascript“>
+		var a = document.getElementsByTagName(‘a’);
+		for(i = 0; i < a.length; i++){
+			if (a[i].href.indexOf(location.host) == -1 && a[i].href.match(/^http:///i)){
+				a[i].onclick = function(){
+				_gaq.push([‘_trackEvent’, ‘outgoing_links’, this.href.replace(/^http:///i, ”)]);
+				}
+			}
+		}
+		
+		</script>
 
 		<title>JHH Referrals</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
